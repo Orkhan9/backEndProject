@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Product>
+@{
+    Layout = null;
+}
+
+@foreach (Product item in Model)
+{
+    <li>
+        <a href="/ProductDetail/Index/@item.Id">@item.Title</a>
+    </li>
+}

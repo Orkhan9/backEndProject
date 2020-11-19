@@ -1,0 +1,76 @@
+﻿@model List<BasketVM>
+@{
+    ViewData["Title"] = "Index";
+    double Total = 0;
+}
+
+    <div class="container">
+        <div class="row mt-3">
+            @if (Model.Count != 0)
+            {
+                <div class="col-12">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Image</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Total Price</th>
+                                <th scope="col">Database Count</th>
+                                <th scope="col">Basket Count</th>
+                                <th scope="col">Minus</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (BasketVM item in Model)
+                            {
+                                double total = item.Count * item.Price;
+                                Total += total;
+
+                                <tr>
+                                    <td><img src="~/img/@item.Image" width="100" /></td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Price</td>
+                                    <td>@total</td>
+                                    <td>@ViewBag.dbProductCount</td>
+                                    <td>
+                                        @item.Count
+                                    </td>
+                                    <td>
+                                        <a asp-controller="Basket" asp-action="ProductCountMinus" asp-route-id="@item.Id">
+                                            <i class="fas fa-minus"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        @if (item.Count < @ViewBag.dbProductCount)
+                                        {
+                                            <a asp-controller="Basket" asp-action="ProductCountPlus" asp-route-id="@item.Id">
+                                                <i class="fas fa-plus"></i>
+                                            </a>
+
+                                        }
+                                    </td>
+
+                                    <td><i class="fas fa-trash-alt"></i></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12">Total:@Total</div>
+            }
+            else
+            {
+                <p>
+                    Sebet boshdur mehsullari sechmek uchun ya
+                    <a asp-controller="Home" asp-action="Index">Home</a> ya da 
+                    <a asp-controller="Product" asp-action="Index">Products</a> sehifesine baxa bilersiniz
+                </p>
+            }
+
+        </div>
+    </div>
+

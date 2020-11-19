@@ -1,0 +1,27 @@
+﻿@model SliderImage
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Category</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Photos"></label>
+                        <input class="form-control" asp-for="Photos" accept="image/*">
+                        <span asp-validation-for="Photos" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Create</button>
+                    <a class="btn btn-success" asp-action="Index">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_Validation" />
+}
+
