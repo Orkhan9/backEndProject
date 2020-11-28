@@ -34,6 +34,41 @@ $(document).ready(function() {
         
     })
 
+    //addbasket
+    let allAddSpan = document.querySelectorAll(".addToBasket")
+    allAddSpan.forEach(item => {
+        item.addEventListener("click", function () {
+                event.preventDefault();
+                let id = $(this).attr("data-id");
+                $.ajax({
+                    url: "/Basket/AddBasket?Id=" + id,
+                    type: "Get",
+                    success: function (res) {
+                        console.log(res)
+                        $(".countProductBasket").text(res);
+                    }
+                })
+        })
+    })
+
+    //remove product from basket
+    let allRemove = document.querySelectorAll(".removeProduct")
+    allRemove.forEach(item => {
+        item.addEventListener("click", function () {
+            event.preventDefault();
+            let id = $(this).attr("data-id");
+            $.ajax({
+                url: "/Basket/RemoveProduct?Id=" + id,
+                type: "Get",
+                success: function (res) {
+                    console.log(res);
+                    let parentBody = document.getElementById('parentBody');
+                    parentBody.innerHTML = res;
+                }
+            })
+        })
+    })
+
     // HEADER
 
     $(document).on('click', '#search', function() {

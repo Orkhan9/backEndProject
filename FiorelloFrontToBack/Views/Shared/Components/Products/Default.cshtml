@@ -16,11 +16,12 @@
                 <h6>@item.Title</h6>
             </div>
             <div class="price">
-                <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@item.Id">
-                <span class="text-black-50">Add to cart</span>
+                <a>
+                    <span class="text-black-50 addToBasket" id="" data-id="@item.Id">Add to cart</span>
                 </a>
                 <span class="text-black-50">$@item.Price</span>
             </div>
         </div>
     </div>
 }
+

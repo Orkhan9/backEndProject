@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\User\\Desktop\\visual studio me\\ASP\\FiorelloFrontToBack\\FiorelloFrontToBack\\FiorelloFrontToBack.csproj",
+    "projectUniqueName": "C:\\Users\\User\\Desktop\\my projects\\ASP\\FiorelloFrontToBack\\FiorelloFrontToBack\\FiorelloFrontToBack.csproj",
     "projectName": "FiorelloFrontToBack",
-    "projectPath": "C:\\Users\\User\\Desktop\\visual studio me\\ASP\\FiorelloFrontToBack\\FiorelloFrontToBack\\FiorelloFrontToBack.csproj",
-    "outputPath": "C:\\Users\\User\\Desktop\\visual studio me\\ASP\\FiorelloFrontToBack\\FiorelloFrontToBack\\obj\\",
+    "projectPath": "C:\\Users\\User\\Desktop\\my projects\\ASP\\FiorelloFrontToBack\\FiorelloFrontToBack\\FiorelloFrontToBack.csproj",
+    "outputPath": "C:\\Users\\User\\Desktop\\my projects\\ASP\\FiorelloFrontToBack\\FiorelloFrontToBack\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp2.1"
