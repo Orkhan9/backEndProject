@@ -1,22 +1,18 @@
 ﻿@model IEnumerable<BasketVM>
 @{
     Layout = null;
-    double Total = 0;
 }
 
 @foreach (BasketVM item in Model)
 {
-    double total = item.Count * item.Price;
-    Total += total;
-
     <tr id="parentTr">
         <td><img src="~/img/@item.Image" width="100" /></td>
         <td>@item.Title</td>
         <td>@item.Price</td>
-        <td>@total</td>
-        <td>@ViewBag.dbProductCount</td>
+        <td>@item.ProductTotalPrice</td>
+        <td>@item.DbCount</td>
         <td class="productCount">
-            @item.Count
+            @item.BasketCount
         </td>
         <td>
             <a asp-controller="Basket" asp-action="ProductCountMinus" asp-route-id="@item.Id">
@@ -24,7 +20,7 @@
             </a>
         </td>
         <td>
-            @if (item.Count < ViewBag.dbProductCount)
+            @if (item.BasketCount < item.DbCount)
             {
                 <a>
                     <i class="fas fa-plus plusProduct" onclick="Increase()" data-id="@item.Id"></i>

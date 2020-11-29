@@ -31,7 +31,7 @@ namespace FiorelloFrontToBack.ViewComponents
                     Product dbProduct = await _db.Products.FindAsync(item.Id);
                     if (dbProduct != null)
                     {
-                        Total += item.Count * dbProduct.Price;
+                        Total += item.BasketCount * dbProduct.Price;
                     }
                     
                 }

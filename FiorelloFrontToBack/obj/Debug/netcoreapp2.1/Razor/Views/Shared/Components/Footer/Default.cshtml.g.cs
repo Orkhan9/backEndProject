@@ -116,7 +116,7 @@ using FiorelloFrontToBack.ViewModels;
             WriteLiteral(" class=\"text-black-50\">Powered by <a class=\"author text-muted\" href=\"https://www.bakhtiyar.az\">Bakhtiyar Shamilzada</a> 2020</p>\r\n                </div>\r\n                <div class=\" col-lg-4 text-center\">\r\n                    ");
             EndContext();
             BeginContext(3311, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "12a065ea0bf54757a7c2c5d80e9caadc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "70207313976a414cba42ead13f3dd39d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

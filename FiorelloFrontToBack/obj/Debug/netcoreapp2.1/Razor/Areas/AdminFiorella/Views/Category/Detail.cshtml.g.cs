@@ -81,7 +81,7 @@ using FiorelloFrontToBack.ViewModels;
             WriteLiteral("</p>\r\n\r\n            </blockquote>\r\n        </div>\r\n    </div>\r\n    <div class=\"row mt-3 ml-3\">\r\n        ");
             EndContext();
             BeginContext(411, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5e67ed39e5cb4af38c1727761516d736", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6771230cdce7496ebbd526f3ac1642ca", async() => {
                 BeginContext(456, 7, true);
                 WriteLiteral("Go back");
                 EndContext();

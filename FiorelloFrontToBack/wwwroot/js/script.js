@@ -45,7 +45,10 @@ $(document).ready(function() {
                     type: "Get",
                     success: function (res) {
                         console.log(res)
-                        $(".countProductBasket").text(res);
+                        let totalPriceNav = document.getElementById('totalPriceNav');
+                        let totalCountNav = document.getElementById('totalCountNav');
+                        totalPriceNav.innerHTML = 'CART' + ' (' + res.basketTotalPrice + ')';
+                        totalCountNav.innerHTML = res.basketProductCount;
                     }
                 })
         })
@@ -61,9 +64,13 @@ $(document).ready(function() {
                 url: "/Basket/RemoveProduct?Id=" + id,
                 type: "Get",
                 success: function (res) {
-                    console.log(res);
-                    let parentBody = document.getElementById('parentBody');
-                    parentBody.innerHTML = res;
+                    let basketTotalPrice = document.getElementById('basketTotalPrice');
+                    let totalPriceNav = document.getElementById('totalPriceNav');
+                    let totalCountNav = document.getElementById('totalCountNav');
+                    basketTotalPrice.innerHTML = 'Total:' + res.basketTotalPrice;
+                    totalPriceNav.innerHTML = 'CART' + ' (' + res.basketTotalPrice + ')';
+                    totalCountNav.innerHTML = res.basketProductCount;
+                    item.parentElement.parentElement.parentElement.remove();
                 }
             })
         })

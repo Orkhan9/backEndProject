@@ -21,15 +21,11 @@ namespace FiorelloFrontToBack.Controllers
 
         public IActionResult Index()
         {
-
-            List<Product> products = _db.Products.ToList();
-            foreach (Product item in products)
-            {
-                ViewBag.dbProductCount = item.Count;
-            }
-
+            double number = 0;
+            ViewBag.BasketTotalPrice = "";
             string fbasket = Request.Cookies["fbasket"];
             List<BasketVM> basketProducts = new List<BasketVM>();
+
             if (fbasket != null)
             {
                 basketProducts = JsonConvert.DeserializeObject<List<BasketVM>>(fbasket);
@@ -42,82 +38,124 @@ namespace FiorelloFrontToBack.Controllers
                         basketProduct.Price = dbProduct.Price;
                         basketProduct.Image = dbProduct.Image;
                         basketProduct.Title = dbProduct.Title;
+                        basketProduct.DbCount = dbProduct.Count;
                     }
-
+                    basketProduct.ProductTotalPrice = basketProduct.BasketCount * basketProduct.Price;
+                    number += basketProduct.ProductTotalPrice;
                 }
+                ViewBag.BasketTotalPrice = number;
             }
-
             return View(basketProducts);
         }
 
 
-        public async Task<IActionResult> AddBasket(int? id)
+        public IActionResult AddBasket(int? id)
         {
+            double basketTotalPrice = 0;
+
             if (id == null) return NotFound();
-            Product dbproduct = await _db.Products.FindAsync(id);
+            Product dbproduct =  _db.Products.FirstOrDefault(x=>x.Id==id);
             
             if (dbproduct == null) return NotFound();
-            List<BasketVM> products;
+            List<BasketVM> basketProducts;
             if (Request.Cookies["fbasket"] == null)
             {
-                products = new List<BasketVM>();
+                basketProducts = new List<BasketVM>();
             }
             else
             {
-                products = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["fbasket"]);
+                basketProducts = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["fbasket"]);
             }
 
-            BasketVM existProduct = products.FirstOrDefault(p => p.Id == id);
+            BasketVM existProduct = basketProducts.FirstOrDefault(p => p.Id == id);
             
             if (existProduct == null)
             {
                 BasketVM newproduct = new BasketVM
                 {
                     Id = dbproduct.Id,
-                    Count = 1
+                    BasketCount = 1
                 };
-                products.Add(newproduct);
+                basketProducts.Add(newproduct);
             }
             else
             {
-                existProduct.Count++;
+                existProduct.BasketCount++;
             }
 
-            string fbasket = JsonConvert.SerializeObject(products);
-            Response.Cookies.Append("fbasket", fbasket, new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
+            foreach (var basketProduct in basketProducts)
+            {
+                Product dbProduct = _db.Products.FirstOrDefault(x => x.Id == basketProduct.Id);
+                if (dbProduct != null)
+                {
+                    basketProduct.Price = dbProduct.Price;
+                    basketProduct.Image = dbProduct.Image;
+                    basketProduct.Title = dbProduct.Title;
+                    basketProduct.DbCount = dbProduct.Count;
+                }
+                basketProduct.ProductTotalPrice = basketProduct.BasketCount * basketProduct.Price;
+                basketTotalPrice += basketProduct.ProductTotalPrice;
+            }
 
-            return Json(products.Count());
+            string fbasket = JsonConvert.SerializeObject(basketProducts);
+            Response.Cookies.Append("fbasket", fbasket, new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
+            var anonymObject = new
+            {
+                BasketTotalPrice = basketTotalPrice,
+                BasketProductCount = basketProducts.Count()
+            };
+
+            return Ok(anonymObject);
             //return RedirectToAction("Index","Home");
         }
 
-        
-        // public IActionResult ProductCountPlusAjax(int? id)
-        // {
-        //     string basketProducts = Request.Cookies["fbasket"];
-        //     List<BasketVM> products = JsonConvert.DeserializeObject<List<BasketVM>>(basketProducts);
-        //     BasketVM product=products.FirstOrDefault(p => p.Id == id);
-        //     product.Count++;
-        //     var dbProduct = _db.Products.FirstOrDefault(x => x.Id == id);
-        //     
-        //     string fbasket = JsonConvert.SerializeObject(products);
-        //     Response.Cookies.Append("fbasket", fbasket, new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
-        //
-        //     return Ok(product.Count);
-        // }
-        
-        public IActionResult ProductCountPlusAxious([FromForm]int id)
+
+        //public IActionResult ProductCountPlusAjax(int? id)
+        //{
+        //    string basketProducts = Request.Cookies["fbasket"];
+        //    List<BasketVM> products = JsonConvert.DeserializeObject<List<BasketVM>>(basketProducts);
+        //    BasketVM product = products.FirstOrDefault(p => p.Id == id);
+        //    product.BasketCount++;
+        //    var dbProduct = _db.Products.FirstOrDefault(x => x.Id == id);
+
+        //    string fbasket = JsonConvert.SerializeObject(products);
+        //    Response.Cookies.Append("fbasket", fbasket, new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
+
+        //    return Ok(product.BasketCount);
+        //}
+
+        public IActionResult ProductCountPlusAxious([FromForm] int id)
         {
-            string basketProducts = Request.Cookies["fbasket"];
-            List<BasketVM> products = JsonConvert.DeserializeObject<List<BasketVM>>(basketProducts);
-            BasketVM product = products.FirstOrDefault(p => p.Id == id);
-            product.Count++;
-            //var dbProduct = _db.Products.FirstOrDefault(x => x.Id == id);
+            double basketTotalPrice = 0;
+            string basket = Request.Cookies["fbasket"];
+            List<BasketVM> basketProducts = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+            BasketVM product = basketProducts.FirstOrDefault(p => p.Id == id);
 
-            string fbasket = JsonConvert.SerializeObject(products);
+            product.BasketCount++;
+            int basketCount = product.BasketCount;
+            foreach (var basketProduct in basketProducts)
+            {
+                Product dbProduct = _db.Products.FirstOrDefault(x => x.Id == basketProduct.Id);
+                if (dbProduct != null)
+                {
+                    basketProduct.Price = dbProduct.Price;
+                    basketProduct.Image = dbProduct.Image;
+                    basketProduct.Title = dbProduct.Title;
+                    basketProduct.DbCount = dbProduct.Count;
+                }
+                basketProduct.ProductTotalPrice = basketProduct.BasketCount * basketProduct.Price;
+                basketTotalPrice += basketProduct.ProductTotalPrice;
+            }
+
+            string fbasket = JsonConvert.SerializeObject(basketProducts);
             Response.Cookies.Append("fbasket", fbasket, new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
-
-            return Ok(product.Count);
-           // return Ok();
+            var anonymObject = new
+            {
+                BasketProducts = basketProducts,
+                ProductBasketCount = basketCount,
+                BasketTotalPrice = basketTotalPrice
+            };
+            return Ok(anonymObject);
         }
 
         public IActionResult ProductCountMinus(int? id)
@@ -126,9 +164,9 @@ namespace FiorelloFrontToBack.Controllers
             List<BasketVM> products = JsonConvert.DeserializeObject<List<BasketVM>>(basketProduct);
             BasketVM product = products.FirstOrDefault(p => p.Id == id);
 
-            if (product.Count > 1)
+            if (product.BasketCount > 1)
             {
-                product.Count--;
+                product.BasketCount--;
             }
             else
             {
@@ -144,19 +182,14 @@ namespace FiorelloFrontToBack.Controllers
         
         public IActionResult RemoveProduct(int? id)
         {
-            List<Product> countProducts = _db.Products.ToList();
-            foreach (Product item in countProducts)
-            {
-                ViewBag.dbProductCount = item.Count;
-            }
+            double basketTotalPrice = 0;
+            string basket = Request.Cookies["fbasket"];
+            List<BasketVM> basketProducts = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+            BasketVM product = basketProducts.FirstOrDefault(p => p.Id == id);
 
-            string basketProducts = Request.Cookies["fbasket"];
-            List<BasketVM> products = JsonConvert.DeserializeObject<List<BasketVM>>(basketProducts);
-            BasketVM product = products.FirstOrDefault(p => p.Id == id);
+            basketProducts.Remove(product);
 
-            products.Remove(product);
-
-            foreach (var basketProduct in products)
+            foreach (var basketProduct in basketProducts)
             {
                 Product dbProduct = _db.Products.FirstOrDefault(x => x.Id == basketProduct.Id);
                 if (dbProduct != null)
@@ -164,13 +197,20 @@ namespace FiorelloFrontToBack.Controllers
                     basketProduct.Price = dbProduct.Price;
                     basketProduct.Image = dbProduct.Image;
                     basketProduct.Title = dbProduct.Title;
+                    basketProduct.DbCount = dbProduct.Count;
                 }
+                basketProduct.ProductTotalPrice = basketProduct.BasketCount * basketProduct.Price;
+                basketTotalPrice += basketProduct.ProductTotalPrice;
             }
 
-            string fbasket = JsonConvert.SerializeObject(products);
+            string fbasket = JsonConvert.SerializeObject(basketProducts);
             Response.Cookies.Append("fbasket", fbasket, new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
-
-            return PartialView("_BasketPartial",products);
+            var anonymObject = new
+            {
+                BasketTotalPrice = basketTotalPrice,
+                BasketProductCount = basketProducts.Count()
+            };
+            return Ok(anonymObject);
         }
 
         

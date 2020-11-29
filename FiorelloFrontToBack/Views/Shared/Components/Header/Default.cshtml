@@ -138,8 +138,8 @@
                                 <a asp-controller="Basket" asp-action="Index">
                                     <i class="fas fa-shopping-bag"></i>
                                 </a>
-                                <sup class="rounded-circle countProductBasket">@ViewBag.BasketCount</sup>
-                                <span>CART (@ViewBag.TotalPrice)</span>
+                                <sup class="rounded-circle countProductBasket" id="totalCountNav">@ViewBag.BasketCount</sup>
+                                <span id="totalPriceNav">CART (@ViewBag.TotalPrice)</span>
                                 <ul class="list-unstyled py-3">
                                     <li class="">No products in the cart.</li>
                                 </ul>

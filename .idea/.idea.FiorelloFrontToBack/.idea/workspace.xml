@@ -22,25 +22,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39895496-31b4-4710-ac22-5be887ef1988" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FiorelloFrontToBack/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FiorelloFrontToBack/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="39895496-31b4-4710-ac22-5be887ef1988" name="Default Changelist" comment="added ajax addbasket2">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FiorelloFrontToBack/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FiorelloFrontToBack/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/FiorelloFrontToBack/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FiorelloFrontToBack/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/FiorelloFrontToBack/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FiorelloFrontToBack/config/applicationhost.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/FiorelloFrontToBack/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FiorelloFrontToBack/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/Areas/AdminFiorella/Views/Slider/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/Areas/AdminFiorella/Views/Slider/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/Controllers/BasketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/Controllers/BasketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/ViewComponents/HeaderViewComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/ViewComponents/HeaderViewComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/ViewModels/BasketVM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/ViewModels/BasketVM.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/Views/Basket/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/Views/Basket/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/Views/Shared/Components/Header/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/Views/Shared/Components/Header/Default.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/Views/Shared/_BasketPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/Views/Shared/_BasketPartial.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/bin/Debug/netcoreapp2.1/FiorelloFrontToBack.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/bin/Debug/netcoreapp2.1/FiorelloFrontToBack.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/bin/Debug/netcoreapp2.1/FiorelloFrontToBack.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/bin/Debug/netcoreapp2.1/FiorelloFrontToBack.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/bin/Debug/netcoreapp2.1/FiorelloFrontToBack.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/bin/Debug/netcoreapp2.1/FiorelloFrontToBack.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/bin/Debug/netcoreapp2.1/FiorelloFrontToBack.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/bin/Debug/netcoreapp2.1/FiorelloFrontToBack.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/FiorelloFrontToBack.pdb" afterDir="false" />
@@ -49,31 +45,16 @@
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Category/Detail.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Category/Detail.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Category/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Category/Index.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Category/Update.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Category/Update.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Dashboard/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Dashboard/Index.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Shared/_AdminLayout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Shared/_AdminLayout.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Shared/_Validation.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Shared/_Validation.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Slider/Create.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Slider/Create.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Slider/Delete.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Slider/Delete.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Slider/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Slider/Index.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Slider/Update.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/Slider/Update.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/_ViewImports.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/_ViewImports.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/_ViewStart.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Areas/AdminFiorella/Views/_ViewStart.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Basket/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Basket/Index.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Product/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Product/Index.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Components/Footer/Default.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Components/Footer/Default.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Components/Header/Default.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Components/Header/Default.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Components/Products/Default.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Components/Products/Default.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_BasketPartial.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_BasketPartial.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ProductPartial.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ProductPartial.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_SearchProductPartial.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_SearchProductPartial.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/_ViewImports.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/_ViewImports.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/FiorelloFrontToBack.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/FiorelloFrontToBack.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/FiorelloFrontToBack.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/FiorelloFrontToBack.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FiorelloFrontToBack/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/FiorelloFrontToBack/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +133,24 @@
       <workItem from="1606083362566" duration="6300000" />
       <workItem from="1606113895968" duration="6254000" />
       <workItem from="1606120295259" duration="27000" />
+      <workItem from="1606603551719" duration="98000" />
+      <workItem from="1606643245072" duration="239000" />
     </task>
+    <task id="LOCAL-00001" summary="added ajax addbasket">
+      <created>1606603608717</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606603608717</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added ajax addbasket2">
+      <created>1606603627852</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606603627852</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,28 +172,31 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="added ajax addbasket" />
+    <MESSAGE value="added ajax addbasket2" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ajax addbasket2" />
   </component>
   <component name="WindowStateProjectService">
     <state width="406" height="464" key="DebuggerActiveHint" timestamp="1606119683270">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="406" height="464" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1606119683270" />
-    <state width="1493" height="288" key="GridCell.Tab.0.bottom" timestamp="1606120263732">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1606643484724">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="288" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606120263732" />
-    <state width="1493" height="288" key="GridCell.Tab.0.center" timestamp="1606120263732">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606643484724" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1606643484724">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="288" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606120263732" />
-    <state width="1493" height="288" key="GridCell.Tab.0.left" timestamp="1606120263732">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606643484724" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1606643484723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="288" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606120263732" />
-    <state width="1493" height="288" key="GridCell.Tab.0.right" timestamp="1606120263732">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606643484723" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1606643484724">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="288" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606120263732" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606643484724" />
     <state width="1493" height="288" key="GridCell.Tab.1.bottom" timestamp="1606120263732">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -260,24 +261,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="288" key="GridCell.Tab.4.right/0.0.1536.824@0.0.1536.824" timestamp="1606120263732" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/FiorelloFrontToBack/Controllers/BasketController.cs</url>
-          <line>76</line>
-          <properties documentPath="C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\Controllers\BasketController.cs" initialLine="76">
-            <startOffsets>
-              <option value="2577" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2578" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606603633177">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606603633177" />
   </component>
 </project>
