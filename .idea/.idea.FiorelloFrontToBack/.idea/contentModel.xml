@@ -43,6 +43,7 @@
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
+          <e p="AccountController.cs" t="Include" />
           <e p="BasketController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
           <e p="ProductController.cs" t="Include" />
@@ -56,6 +57,7 @@
         <e p="FiorelloFrontToBack.csproj" t="IncludeRecursive" />
         <e p="Helpers" t="Include">
           <e p="Helper.cs" t="Include" />
+          <e p="IdentityErrorDescriptionAz.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
           <e p="20200816103407_AddTableSliderTexts.cs" t="Include" />
@@ -78,10 +80,13 @@
           <e p="20200902215520_AddCountColumnToProduct.Designer.cs" t="Include" />
           <e p="20200903233555_ChangeCategoryTable.cs" t="Include" />
           <e p="20200903233555_ChangeCategoryTable.Designer.cs" t="Include" />
+          <e p="20201202214914_AddUsers.cs" t="Include" />
+          <e p="20201202214914_AddUsers.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="About.cs" t="Include" />
+          <e p="AppUser.cs" t="Include" />
           <e p="Bio.cs" t="Include" />
           <e p="Category.cs" t="Include" />
           <e p="Expert.cs" t="Include" />
@@ -103,6 +108,9 @@
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="ScaffoldingReadMe.txt" t="Include" />
+        <e p="Service" t="Include">
+          <e p="EmailService.cs" t="Include" />
+        </e>
         <e p="Startup.cs" t="Include" />
         <e p="ViewComponents" t="Include">
           <e p="FooterViewComponent.cs" t="Include" />
@@ -112,10 +120,17 @@
         <e p="ViewModels" t="Include">
           <e p="BasketVM.cs" t="Include" />
           <e p="HomeVM.cs" t="Include" />
+          <e p="LoginVM.cs" t="Include" />
+          <e p="RegisterVM.cs" t="Include" />
+          <e p="UserVM.cs" t="Include" />
         </e>
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Account" t="Include">
+            <e p="Login.cshtml" t="Include" />
+            <e p="Register.cshtml" t="Include" />
+          </e>
           <e p="Basket" t="Include">
             <e p="Index.cshtml" t="Include" />
           </e>

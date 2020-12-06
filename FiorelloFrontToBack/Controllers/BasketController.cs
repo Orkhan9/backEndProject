@@ -21,10 +21,16 @@ namespace FiorelloFrontToBack.Controllers
 
         public IActionResult Index()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             double number = 0;
             ViewBag.BasketTotalPrice = "";
             string fbasket = Request.Cookies["fbasket"];
             List<BasketVM> basketProducts = new List<BasketVM>();
+            List<BasketVM> userProducts = new List<BasketVM>();
 
             if (fbasket != null)
             {
@@ -32,20 +38,24 @@ namespace FiorelloFrontToBack.Controllers
 
                 foreach (BasketVM basketProduct in basketProducts)
                 {
-                    Product dbProduct =  _db.Products.FirstOrDefault(x=>x.Id==basketProduct.Id);
-                    if (dbProduct != null)
+                    if (basketProduct.UserName == User.Identity.Name)
                     {
-                        basketProduct.Price = dbProduct.Price;
-                        basketProduct.Image = dbProduct.Image;
-                        basketProduct.Title = dbProduct.Title;
-                        basketProduct.DbCount = dbProduct.Count;
+                        Product dbProduct = _db.Products.FirstOrDefault(x => x.Id == basketProduct.Id);
+                        if (dbProduct != null)
+                        {
+                            basketProduct.Price = dbProduct.Price;
+                            basketProduct.Image = dbProduct.Image;
+                            basketProduct.Title = dbProduct.Title;
+                            basketProduct.DbCount = dbProduct.Count;
+                            userProducts.Add(basketProduct);
+                        }
+                        basketProduct.ProductTotalPrice = basketProduct.BasketCount * basketProduct.Price;
+                        number += basketProduct.ProductTotalPrice;
                     }
-                    basketProduct.ProductTotalPrice = basketProduct.BasketCount * basketProduct.Price;
-                    number += basketProduct.ProductTotalPrice;
                 }
                 ViewBag.BasketTotalPrice = number;
             }
-            return View(basketProducts);
+            return View(userProducts);
         }
 
 
@@ -54,6 +64,12 @@ namespace FiorelloFrontToBack.Controllers
             double basketTotalPrice = 0;
 
             if (id == null) return NotFound();
+
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             Product dbproduct =  _db.Products.FirstOrDefault(x=>x.Id==id);
             
             if (dbproduct == null) return NotFound();
@@ -67,14 +83,15 @@ namespace FiorelloFrontToBack.Controllers
                 basketProducts = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["fbasket"]);
             }
 
-            BasketVM existProduct = basketProducts.FirstOrDefault(p => p.Id == id);
+            BasketVM existProduct = basketProducts.FirstOrDefault(p => p.Id == id && p.UserName == User.Identity.Name);
             
             if (existProduct == null)
             {
                 BasketVM newproduct = new BasketVM
                 {
                     Id = dbproduct.Id,
-                    BasketCount = 1
+                    BasketCount = 1,
+                    UserName = User.Identity.Name
                 };
                 basketProducts.Add(newproduct);
             }
@@ -83,7 +100,7 @@ namespace FiorelloFrontToBack.Controllers
                 existProduct.BasketCount++;
             }
 
-            foreach (var basketProduct in basketProducts)
+            foreach (var basketProduct in basketProducts.Where(x=>x.UserName==User.Identity.Name))
             {
                 Product dbProduct = _db.Products.FirstOrDefault(x => x.Id == basketProduct.Id);
                 if (dbProduct != null)
@@ -102,11 +119,10 @@ namespace FiorelloFrontToBack.Controllers
             var anonymObject = new
             {
                 BasketTotalPrice = basketTotalPrice,
-                BasketProductCount = basketProducts.Count()
+                BasketProductCount = basketProducts.Where(p => p.UserName == User.Identity.Name).Count()
             };
 
             return Ok(anonymObject);
-            //return RedirectToAction("Index","Home");
         }
 
 
@@ -127,13 +143,14 @@ namespace FiorelloFrontToBack.Controllers
         public IActionResult ProductCountPlusAxious([FromForm] int id)
         {
             double basketTotalPrice = 0;
+            double productTotalPrice = 0;
             string basket = Request.Cookies["fbasket"];
             List<BasketVM> basketProducts = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
-            BasketVM product = basketProducts.FirstOrDefault(p => p.Id == id);
+            BasketVM product = basketProducts.FirstOrDefault(p => p.Id == id && p.UserName==User.Identity.Name);
 
             product.BasketCount++;
             int basketCount = product.BasketCount;
-            foreach (var basketProduct in basketProducts)
+            foreach (var basketProduct in basketProducts.Where(x=>x.UserName==User.Identity.Name))
             {
                 Product dbProduct = _db.Products.FirstOrDefault(x => x.Id == basketProduct.Id);
                 if (dbProduct != null)
@@ -144,6 +161,10 @@ namespace FiorelloFrontToBack.Controllers
                     basketProduct.DbCount = dbProduct.Count;
                 }
                 basketProduct.ProductTotalPrice = basketProduct.BasketCount * basketProduct.Price;
+                if (basketProduct.Id==id)
+                {
+                    productTotalPrice = basketProduct.ProductTotalPrice;
+                }
                 basketTotalPrice += basketProduct.ProductTotalPrice;
             }
 
@@ -153,16 +174,19 @@ namespace FiorelloFrontToBack.Controllers
             {
                 BasketProducts = basketProducts,
                 ProductBasketCount = basketCount,
-                BasketTotalPrice = basketTotalPrice
+                BasketTotalPrice = basketTotalPrice,
+                ProductTotalPrice=productTotalPrice
             };
             return Ok(anonymObject);
         }
 
-        public IActionResult ProductCountMinus(int? id)
+        public IActionResult ProductCountMinusAxious(int? id)
         {
-            string basketProduct = Request.Cookies["fbasket"];
-            List<BasketVM> products = JsonConvert.DeserializeObject<List<BasketVM>>(basketProduct);
-            BasketVM product = products.FirstOrDefault(p => p.Id == id);
+            double basketTotalPrice = 0;
+            double productTotalPrice = 0;
+            string basket = Request.Cookies["fbasket"];
+            List<BasketVM> basketProducts = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+            BasketVM product = basketProducts.FirstOrDefault(p => p.Id == id);
 
             if (product.BasketCount > 1)
             {
@@ -170,13 +194,38 @@ namespace FiorelloFrontToBack.Controllers
             }
             else
             {
-                products.Remove(product);
+                basketProducts.Remove(product);
             }
-            
-            string fbasket = JsonConvert.SerializeObject(products);
-            Response.Cookies.Append("fbasket", fbasket, new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
 
-            return RedirectToAction("Index", "Basket");
+            int basketCount = product.BasketCount;
+            foreach (var basketProduct in basketProducts.Where(x=>x.UserName==User.Identity.Name))
+            {
+                Product dbProduct = _db.Products.FirstOrDefault(x => x.Id == basketProduct.Id);
+                if (dbProduct != null)
+                {
+                    basketProduct.Price = dbProduct.Price;
+                    basketProduct.Image = dbProduct.Image;
+                    basketProduct.Title = dbProduct.Title;
+                    basketProduct.DbCount = dbProduct.Count;
+                }
+                basketProduct.ProductTotalPrice = basketProduct.BasketCount * basketProduct.Price;
+                if (basketProduct.Id == id)
+                {
+                    productTotalPrice = basketProduct.ProductTotalPrice;
+                }
+                basketTotalPrice += basketProduct.ProductTotalPrice;
+            }
+
+            string fbasket = JsonConvert.SerializeObject(basketProducts);
+            Response.Cookies.Append("fbasket", fbasket, new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
+            var anonymObject = new
+            {
+                BasketProducts = basketProducts,
+                ProductBasketCount = basketCount,
+                BasketTotalPrice = basketTotalPrice,
+                ProductTotalPrice = productTotalPrice
+            };
+            return Ok(anonymObject);
         }
 
         
@@ -189,7 +238,7 @@ namespace FiorelloFrontToBack.Controllers
 
             basketProducts.Remove(product);
 
-            foreach (var basketProduct in basketProducts)
+            foreach (var basketProduct in basketProducts.Where(x=>x.UserName==User.Identity.Name))
             {
                 Product dbProduct = _db.Products.FirstOrDefault(x => x.Id == basketProduct.Id);
                 if (dbProduct != null)
@@ -208,7 +257,7 @@ namespace FiorelloFrontToBack.Controllers
             var anonymObject = new
             {
                 BasketTotalPrice = basketTotalPrice,
-                BasketProductCount = basketProducts.Count()
+                BasketProductCount = basketProducts.Where(x=>x.UserName==User.Identity.Name).Count()
             };
             return Ok(anonymObject);
         }

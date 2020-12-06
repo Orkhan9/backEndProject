@@ -15,5 +15,6 @@ namespace FiorelloFrontToBack.ViewModels
         public int DbCount { get; set; }
         public int TotalBasketCount { get; set; }
         public double ProductTotalPrice { get; set; }
+        public string UserName { get; set; }
     }
 }

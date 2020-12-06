@@ -31,7 +31,6 @@ $(document).ready(function() {
                 }
             })
         }
-        
     })
 
     //addbasket
@@ -47,7 +46,7 @@ $(document).ready(function() {
                         console.log(res)
                         let totalPriceNav = document.getElementById('totalPriceNav');
                         let totalCountNav = document.getElementById('totalCountNav');
-                        totalPriceNav.innerHTML = 'CART' + ' (' + res.basketTotalPrice + ')';
+                        totalPriceNav.innerHTML = 'CART (' + res.basketTotalPrice + ')';
                         totalCountNav.innerHTML = res.basketProductCount;
                     }
                 })

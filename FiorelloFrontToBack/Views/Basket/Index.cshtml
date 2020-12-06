@@ -32,12 +32,12 @@
                                 <td>@item.Price</td>
                                 <td>@item.ProductTotalPrice</td>
                                 <td>@item.DbCount</td>
-                                <td class="basketCount" data-id="@item.Id">
+                                <td>
                                     @item.BasketCount
                                 </td>
                                 <td>
-                                    <a asp-controller="Basket" asp-action="ProductCountMinus" asp-route-id="@item.Id">
-                                        <i class="fas fa-minus"></i>
+                                    <a>
+                                        <i class="fas fa-minus minusProduct" data-id="@item.Id"></i>
                                     </a>
                                 </td>
                                 <td>
@@ -82,14 +82,14 @@
     <script>
 
 
-        let plusProduct = $('.plusProduct');
+        let plusProduct = document.querySelectorAll('.plusProduct');
         
-        plusProduct.each(function () {
-            $(this).click(function () {
-                let parentBody = document.getElementById('parentBody');
-                //parentBody.innerHTML = "";
+        plusProduct.forEach(item => {
+            item.addEventListener("click", function (e) {
+                var plusBtn = e.target;
+
                 let formdata = new FormData();
-                id = $(".plusProduct").attr('data-id');
+                let id = plusBtn.getAttribute("data-id");
                 formdata.append("id", id);
                 axios.post('/basket/ProductCountPlusAxious', formdata)
 
@@ -97,25 +97,57 @@
                         console.log(response.data.productBasketCount)
                         console.log(response.data.basketProducts)
                         console.log(response.data.basketTotalPrice)
+                        console.log(response.data.productTotalPrice)
                         let basketTotalPrice = document.getElementById('basketTotalPrice');
                         let totalPriceNav = document.getElementById('totalPriceNav');
-                        let basketCount = document.querySelectorAll('.basketCount');
-                        //basketCount.forEach(bCount => {
-                        //    if (bCount.getAttribute('data-id') == item.getAttribute('data-id')) {
-                        //        bCount.innerHTML = response.data.productBasketCount;
-                        //    }
-                        //})
-                        //console.log(Array.from(basketCount));
 
+                        basketTotalPrice.innerHTML = 'Total:' + response.data.basketTotalPrice;
+                        totalPriceNav.innerHTML = 'CART' + ' (' + response.data.basketTotalPrice + ')';
+                        plusBtn.parentElement.parentElement.previousElementSibling.
+                            previousElementSibling.textContent = response.data.productBasketCount;
+                        plusBtn.parentElement.parentElement.previousElementSibling.previousElementSibling
+                        .previousElementSibling.previousElementSibling.textContent=response.data.productTotalPrice;
+                    })
+                    .catch(function (error) {
+                        if (error.response) {
+                            let errorObj = error.response.data;
+                            for (let errors in errorObj) {
+                                let error = errorObj[errors];
+                                console.log(error);
+                            }
+                        }
+                    });
+            })
+        })
+    </script>
+    <script>
+        let minusProduct = document.querySelectorAll('.minusProduct');
 
-                        ////
-                        //parentBody.appendChild(response.data.basketProducts);
-                        //basketTotalPrice.innerHTML = 'Total:' + response.data.basketTotalPrice;
-                        //totalPriceNav.innerHTML = 'CART' + ' (' + response.data.basketTotalPrice + ')';
-                        //basketCount.innerHTML = response.data.productBasketCount;
-                        console.log($(this).closest())
-                        console.log(plusProduct.parent())
-                        //$(this).parent().parent().prev().prev().text(response.data.productBasketCount);
+        minusProduct.forEach(item => {
+            item.addEventListener("click", function (e) {
+                var minusBtn = e.target;
+
+                let formdata = new FormData();
+                let id = minusBtn.getAttribute("data-id");
+                formdata.append("id", id);
+                axios.post('/basket/ProductCountMinusAxious', formdata)
+
+                    .then(function (response) {
+                        console.log(response.data.productBasketCount)
+                        console.log(response.data.basketProducts)
+                        console.log(response.data.basketTotalPrice)
+                        let basketTotalPrice = document.getElementById('basketTotalPrice');
+                        let totalPriceNav = document.getElementById('totalPriceNav');
+
+                        basketTotalPrice.innerHTML = 'Total:' + response.data.basketTotalPrice;
+                        totalPriceNav.innerHTML = 'CART' + ' (' + response.data.basketTotalPrice + ')';
+                        //if (response.data.productBasketCount == 1) {
+                        //    minusBtn.parentElement.parentElement.innerHTML = '';
+                        //}
+
+                        minusBtn.parentElement.parentElement.previousElementSibling.textContent = response.data.productBasketCount;
+                        minusBtn.parentElement.parentElement.previousElementSibling.previousElementSibling
+                            .previousElementSibling.textContent = response.data.productTotalPrice;
                     })
                     .catch(function (error) {
                         if (error.response) {

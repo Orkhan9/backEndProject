@@ -92,7 +92,6 @@ C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\bi
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.csprojAssemblyReference.cache
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.AssemblyInfoInputs.cache
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.AssemblyInfo.cs
-C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.RazorAssemblyInfo.cache
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.RazorAssemblyInfo.cs
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.TagHelpers.input.cache
@@ -131,3 +130,6 @@ C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\ob
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.genruntimeconfig.cache
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.csproj.CopyComplete
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_BasketPartial.cshtml.g.cs
+C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.csproj.CoreCompileInputs.cache

@@ -1,6 +1,7 @@
 ﻿using FiorelloFrontToBack.DAL;
 using FiorelloFrontToBack.Models;
 using FiorelloFrontToBack.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -13,20 +14,29 @@ namespace FiorelloFrontToBack.ViewComponents
     public class HeaderViewComponent:ViewComponent
     {
         private readonly AppDbContext _db;
-        public HeaderViewComponent(AppDbContext db)
+        private readonly UserManager<AppUser> _userManager;
+        public HeaderViewComponent(AppDbContext db, UserManager<AppUser> userManager)
         {
             _db = db;
+            _userManager = userManager;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
+            ViewBag.FullName = "";
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                ViewBag.FullName = user.FullName;
+            }
+
             double Total=0;
             if (Request.Cookies["fbasket"]!=null)
             {
                 List<BasketVM> products = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["fbasket"]);
-                ViewBag.BasketCount = products.Count;
+                ViewBag.BasketCount = products.Where(x=>x.UserName==User.Identity.Name).Count();
                 
-                foreach (BasketVM item in products)
+                foreach (BasketVM item in products.Where(x=>x.UserName==User.Identity.Name))
                 {
                     Product dbProduct = await _db.Products.FindAsync(item.Id);
                     if (dbProduct != null)
