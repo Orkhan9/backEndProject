@@ -63,13 +63,29 @@ $(document).ready(function() {
                 url: "/Basket/RemoveProduct?Id=" + id,
                 type: "Get",
                 success: function (res) {
+                    console.log(res)
                     let basketTotalPrice = document.getElementById('basketTotalPrice');
                     let totalPriceNav = document.getElementById('totalPriceNav');
                     let totalCountNav = document.getElementById('totalCountNav');
-                    basketTotalPrice.innerHTML = 'Total:' + res.basketTotalPrice;
+                    
                     totalPriceNav.innerHTML = 'CART' + ' (' + res.basketTotalPrice + ')';
                     totalCountNav.innerHTML = res.basketProductCount;
                     item.parentElement.parentElement.parentElement.remove();
+
+                    
+                    
+                    if (res.basketTotalPrice > 0) {
+                        basketTotalPrice.innerHTML = 'Total:' + res.basketTotalPrice;
+                    } else {
+                        basketTotalPrice.remove();
+                        let link =
+                        `<p>
+                            Sebet boshdur mehsullari sechmek uchun ya
+                            <a href="Home">Home</a> ya da
+                            <a href="Product">Products</a> sehifesine baxa bilersiniz
+                        </p>`
+                        document.getElementById('basketBox').innerHTML = link;
+                    }
                 }
             })
         })
@@ -209,7 +225,7 @@ $(document).ready(function() {
 
     $(window).load(function() {
         // Animate loader off screen
-        $(".se-pre-con").slideUp(3000);
+        $(".se-pre-con").slideUp(0);
     });
 
 

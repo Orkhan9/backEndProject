@@ -126,8 +126,16 @@
                                 <a asp-controller="Basket" asp-action="Index">
                                     <i class="fas fa-shopping-bag"></i>
                                 </a>
-                                <sup class="rounded-circle countProductBasket" id="totalCountNav">@ViewBag.BasketCount</sup>
-                                <span id="totalPriceNav">CART (@ViewBag.TotalPrice)</span>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <sup class="rounded-circle countProductBasket" id="totalCountNav">@ViewBag.BasketCount</sup>
+                                    <span id="totalPriceNav">CART (@ViewBag.TotalPrice)</span>
+                                }
+                                else
+                                {
+                                    <sup class="rounded-circle countProductBasket" id="totalCountNav">0</sup>
+                                    <span id="totalPriceNav">CART (0)</span>
+                                }
                                 <ul class="list-unstyled py-3">
                                     <li class="">No products in the cart.</li>
                                 </ul>

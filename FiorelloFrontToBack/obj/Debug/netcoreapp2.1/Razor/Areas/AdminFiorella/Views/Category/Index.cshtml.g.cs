@@ -66,7 +66,7 @@ using FiorelloFrontToBack.ViewModels;
             WriteLiteral("\r\n    <div class=\"row mt-3\">\r\n        <div class=\"col-lg-12 grid-margin stretch-card\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <h4 class=\"card-title\">Categories</h4>\r\n                    ");
             EndContext();
             BeginContext(312, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b072bf6a5a124b3f9a1402ab1afe5ada", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1de904051af94887978dc6f74a6c3095", async() => {
                 BeginContext(359, 6, true);
                 WriteLiteral("Create");
                 EndContext();
@@ -123,7 +123,7 @@ using FiorelloFrontToBack.ViewModels;
             WriteLiteral("\r\n                                        </td>\r\n                                        <td>\r\n                                            ");
             EndContext();
             BeginContext(1330, 271, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "010dd260c26f49c08927e42d894ce226", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59e6648e42cb4b03ae411bdba6d6ce6d", async() => {
                 BeginContext(1401, 196, true);
                 WriteLiteral("\r\n                                                Detail\r\n                                                <i class=\"mdi mdi-account-card-details\"></i>\r\n                                            ");
                 EndContext();
@@ -159,7 +159,7 @@ using FiorelloFrontToBack.ViewModels;
             WriteLiteral("\r\n                                            ");
             EndContext();
             BeginContext(1647, 261, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d15eecfd57d44b9a4c1d5dfb4f0745a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f6d4de33960f477e87b6059b9595efe5", async() => {
                 BeginContext(1718, 186, true);
                 WriteLiteral("\r\n                                                Update\r\n                                                <i class=\"mdi mdi-table-edit\"></i>\r\n                                            ");
                 EndContext();
@@ -195,7 +195,7 @@ using FiorelloFrontToBack.ViewModels;
             WriteLiteral("\r\n                                            ");
             EndContext();
             BeginContext(1954, 256, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cdc8a868e8e41929b2f72bbc8d71ac1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "22ef7f1eb4cc47bbbde45ccbf25183de", async() => {
                 BeginContext(2024, 182, true);
                 WriteLiteral("\r\n                                                Delete\r\n                                                <i class=\"mdi mdi-delete\"></i>\r\n                                            ");
                 EndContext();

@@ -142,6 +142,7 @@ namespace FiorelloFrontToBack.Controllers
 
         public IActionResult ProductCountPlusAxious([FromForm] int id)
         {
+            int basketProductDbCount = 0;
             double basketTotalPrice = 0;
             double productTotalPrice = 0;
             string basket = Request.Cookies["fbasket"];
@@ -159,6 +160,7 @@ namespace FiorelloFrontToBack.Controllers
                     basketProduct.Image = dbProduct.Image;
                     basketProduct.Title = dbProduct.Title;
                     basketProduct.DbCount = dbProduct.Count;
+                    basketProductDbCount= dbProduct.Count;
                 }
                 basketProduct.ProductTotalPrice = basketProduct.BasketCount * basketProduct.Price;
                 if (basketProduct.Id==id)
@@ -175,7 +177,9 @@ namespace FiorelloFrontToBack.Controllers
                 BasketProducts = basketProducts,
                 ProductBasketCount = basketCount,
                 BasketTotalPrice = basketTotalPrice,
-                ProductTotalPrice=productTotalPrice
+                ProductTotalPrice=productTotalPrice,
+                BasketProductDbCount= basketProductDbCount,
+                ProductId =product.Id
             };
             return Ok(anonymObject);
         }

@@ -59,6 +59,7 @@
           <e p="Helper.cs" t="Include" />
           <e p="IdentityErrorDescriptionAz.cs" t="Include" />
         </e>
+        <e p="libman.json" t="Include" />
         <e p="Migrations" t="Include">
           <e p="20200816103407_AddTableSliderTexts.cs" t="Include" />
           <e p="20200816103407_AddTableSliderTexts.Designer.cs" t="Include" />
@@ -132,6 +133,9 @@
             <e p="Register.cshtml" t="Include" />
           </e>
           <e p="Basket" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Chat" t="Include">
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">

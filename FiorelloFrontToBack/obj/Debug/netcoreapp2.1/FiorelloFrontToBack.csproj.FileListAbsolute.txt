@@ -133,3 +133,5 @@ C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\ob
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\FiorelloFrontToBack.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\bin\Debug\netcoreapp2.1\libman.json
+C:\Users\User\Desktop\my projects\ASP\FiorelloFrontToBack\FiorelloFrontToBack\obj\Debug\netcoreapp2.1\Razor\Views\Chat\Index.cshtml.g.cs

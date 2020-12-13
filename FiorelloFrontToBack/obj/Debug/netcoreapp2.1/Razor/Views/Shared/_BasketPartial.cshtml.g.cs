@@ -70,7 +70,7 @@ using FiorelloFrontToBack.ViewModels;
             WriteLiteral("    <tr id=\"parentTr\">\r\n        <td>");
             EndContext();
             BeginContext(133, 43, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c1f7860410574d368b3da38883956e5f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "671b68ace04e4d6290aa9df0a7cbfa2f", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -146,7 +146,7 @@ AddHtmlAttributeValue("", 149, item.Image, 149, 11, false);
             WriteLiteral("\r\n        </td>\r\n        <td>\r\n            ");
             EndContext();
             BeginContext(424, 91, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6de9474175614dba8c2f44def34efe52", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e8810a9a7ba413883c02a1f6ea60203", async() => {
                 BeginContext(451, 60, true);
                 WriteLiteral("\r\n                <i class=\"fas fa-minus\"></i>\r\n            ");
                 EndContext();

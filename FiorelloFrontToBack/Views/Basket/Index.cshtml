@@ -4,7 +4,7 @@
 }
 
 <div class="container">
-    <div class="row mt-3">
+    <div class="row mt-3" id="basketBox">
         @if (Model.Count != 0)
         {
             <div class="col-12">
@@ -36,9 +36,18 @@
                                     @item.BasketCount
                                 </td>
                                 <td>
-                                    <a>
-                                        <i class="fas fa-minus minusProduct" data-id="@item.Id"></i>
-                                    </a>
+                                    @if (item.BasketCount > 1)
+                                    {
+                                        <a>
+                                            <i class="fas fa-minus minusProduct" data-id="@item.Id"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a>
+                                            <i class="fas fa-minus minusProduct d-none" data-id="@item.Id"></i>
+                                        </a>
+                                    }
                                 </td>
                                 <td>
                                     @if (item.BasketCount < item.DbCount)
@@ -60,7 +69,7 @@
             </div>
 
            
-                <div class="col-12" id="basketTotalPrice">Total:@ViewBag.BasketTotalPrice</div>
+            <div class="col-12" id="basketTotalPrice">Total:@ViewBag.BasketTotalPrice</div>
             
         }
         else
@@ -83,7 +92,7 @@
 
 
         let plusProduct = document.querySelectorAll('.plusProduct');
-        
+
         plusProduct.forEach(item => {
             item.addEventListener("click", function (e) {
                 var plusBtn = e.target;
@@ -94,10 +103,7 @@
                 axios.post('/basket/ProductCountPlusAxious', formdata)
 
                     .then(function (response) {
-                        console.log(response.data.productBasketCount)
-                        console.log(response.data.basketProducts)
-                        console.log(response.data.basketTotalPrice)
-                        console.log(response.data.productTotalPrice)
+                        console.log(response.data)
                         let basketTotalPrice = document.getElementById('basketTotalPrice');
                         let totalPriceNav = document.getElementById('totalPriceNav');
 
@@ -106,7 +112,17 @@
                         plusBtn.parentElement.parentElement.previousElementSibling.
                             previousElementSibling.textContent = response.data.productBasketCount;
                         plusBtn.parentElement.parentElement.previousElementSibling.previousElementSibling
-                        .previousElementSibling.previousElementSibling.textContent=response.data.productTotalPrice;
+                            .previousElementSibling.previousElementSibling.textContent = response.data.productTotalPrice;
+                        
+                        if (response.data.productBasketCount > 1) {
+                            plusBtn.parentElement.parentElement.previousElementSibling
+                                .firstElementChild.firstElementChild.classList.remove('d-none');
+                        }
+
+                        if (response.data.productBasketCount == response.data.basketProductDbCount) {
+                            plusBtn.classList.add('d-none');
+                        }
+                        
                     })
                     .catch(function (error) {
                         if (error.response) {
@@ -141,13 +157,20 @@
 
                         basketTotalPrice.innerHTML = 'Total:' + response.data.basketTotalPrice;
                         totalPriceNav.innerHTML = 'CART' + ' (' + response.data.basketTotalPrice + ')';
-                        //if (response.data.productBasketCount == 1) {
-                        //    minusBtn.parentElement.parentElement.innerHTML = '';
-                        //}
+                        
 
                         minusBtn.parentElement.parentElement.previousElementSibling.textContent = response.data.productBasketCount;
                         minusBtn.parentElement.parentElement.previousElementSibling.previousElementSibling
                             .previousElementSibling.textContent = response.data.productTotalPrice;
+
+                        if (response.data.productBasketCount == 1) {
+                            minusBtn.classList.add('d-none');
+                        } else {
+                            minusBtn.parentElement.parentElement.nextElementSibling.
+                                firstElementChild.firstElementChild.classList.remove('d-none');
+                        }
+
+                        
                     })
                     .catch(function (error) {
                         if (error.response) {
